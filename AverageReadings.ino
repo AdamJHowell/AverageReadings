@@ -1,4 +1,4 @@
-#define LED_PIN 2                             // The GPIO that the onboard LED is attached to.
+#define LED_BUILTIN 2                             // The GPIO that the onboard LED is attached to.
 unsigned long lastTelemetryPollTime = 0;	    // The last time sensors were polled.
 unsigned long telemetryPollInterval = 10000;  // How long to wait between sensor polling.
 float settingArray[] = { 0, 0, 0 };           // An array to hold the 3 most recent values.
@@ -12,14 +12,14 @@ void readTelemetry()
   settingArray[0] = settingArray[1];
   settingArray[1] = settingArray[2];
   settingArray[2] = random( 99.9 );
-}
+} // End of readTelemetry() function.
 
 
 void printTelemetry()
 {
   float tempC = ( settingArray[0] + settingArray[1] + settingArray[2] ) / 3.0;
   Serial.printf( "Average: %d", tempC );
-}
+} // End of printTelemetry() function.
 
 
 void setup() 
@@ -27,8 +27,8 @@ void setup()
  	// This delay gives me time to open the serial console after flashing.
 	delay( 500 );
 
-	pinMode( LED_PIN, OUTPUT );
-	digitalWrite( LED_PIN, HIGH );
+	pinMode( LED_BUILTIN, OUTPUT );
+	digitalWrite( LED_BUILTIN, HIGH );
 
 	Serial.begin( 115200 );
 	if( !Serial )
@@ -38,7 +38,7 @@ void setup()
 
 	Serial.println( "setup() is running." );
 	Serial.printf( "Source file: %s\n", __FILE__ );
-}
+} // End of setup() function.
 
 
 void loop() 
@@ -50,4 +50,4 @@ void loop()
 		printTelemetry();
 		lastTelemetryPollTime = millis();
 	}
-}
+} // End of loop() function.
