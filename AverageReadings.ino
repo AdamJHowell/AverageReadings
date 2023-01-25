@@ -1,7 +1,7 @@
-#define LED_BUILTIN 2                             // The GPIO that the onboard LED is attached to.
-unsigned long lastTelemetryPollTime = 0;	    // The last time sensors were polled.
-unsigned long telemetryPollInterval = 10000;  // How long to wait between sensor polling.
-float settingArray[] = { 0, 0, 0 };           // An array to hold the 3 most recent values.
+#define LED_BUILTIN 2										// The GPIO that the onboard LED is attached to.
+unsigned long lastTelemetryPollTime = 0;				// The last time sensors were polled.
+unsigned long telemetryPollInterval = 10000;			// How long to wait between sensor polling.
+float settingArray[] = { 21.12, 21.12, 21.12 };		// An array to hold the 3 most recent values.
 
 
 /**
